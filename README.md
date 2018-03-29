@@ -19,10 +19,9 @@ Now you're good to go defining binds!
  ## Defining Binds:  
 To add a bind you just have to call the InputManager's singleton instance and call the KBind function:  
 ### Template:  
-             InputManager::Instance()->(int key, Keyboard::<Key Name>)   
+    InputManager::Instance()->KBind(int key, Keyboard::<Key Name>)   
 ### Example:
-
-             InputManager::Instance()->KBind(0, Keyboard::Space);
+    InputManager::Instance()->KBind(0, Keyboard::Space);
 
   
 ### Checking Input: 
