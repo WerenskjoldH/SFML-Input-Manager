@@ -11,51 +11,62 @@
 
 ## Purpose
 
-This is a singleton approach to creating a light-weight and performant input manager for the SFML 2.5 API. One of the common issues you will find with SFML's input handling is the lack of support for functionality like: press and release. This is a recurring issue for projects I work on, and so I decided to create a light-weight manager I can simply drop into all my SFML projects and expand if necessary. 
+This is a singleton approach to creating a light-weight and performant input manager for the SFML 2.5 API. One of the common issues you will find with SFML's input handling is the lack of support for functionality like: press and release. This is a recurring issue for projects I work on, and so I decided to create a light-weight manager I can simply drop into all my SFML projects and expand if necessary.
 
 ---
 
-## How To Implement:  
-  1. Clone this repository
-  2. Add the files to your program, ensure you have linked the proper library and include directories.
-  3. Add #include "InputManager.h" to the top of your file so the pre-compiler can add it to the project.
+## How To Implement:
+
+1. Clone this repository
+2. Add the files to your program, ensure you have linked the proper library and include directories.
+3. Add #include "InputManager.h" to the top of your file so the pre-compiler can add it to the project.
 
 ---
 
-### Updating The Instance:  
-To keep the keyboard running in line with the rest of the program:  
-#### Setup: 
+### Updating The Instance:
+
+To keep the keyboard running in line with the rest of the program:
+
+#### Setup:
+
 1. Firstly, add the following line of code to the **end** of your **event** loop.  
-<code>InputManager::Instance()->KRUpdate(event);</code>  
+   <code>InputManager::Instance()->KRUpdate(event);</code>
 2. Secondly, add the following line of code to the **end** of your **game** loop.  
-<code>InputManager::Instance()->Update();</code>  
+   <code>InputManager::Instance()->Update();</code>
 
 Now you're good to start defining binds!
 
 ---
 
-### Defining Binds:  
-To add a bind you just have to call the InputManager's singleton instance and call the KBind function:  
-#### Template:  
-``` c++
-InputManager::Instance()->KBind(int key, Keyboard::<Key Name>)   
+### Defining Binds:
+
+To add a bind you just have to call the InputManager's singleton instance and call the KBind function:
+
+#### Template:
+
+```c++
+InputManager::Instance()->KBind(int key, Keyboard::<Key Name>)
 ```
+
 #### Example:
-``` c++
+
+```c++
 InputManager::Instance()->KBind(0, Keyboard::Space);
 ```
-  
-#### Checking Input: 
-This is best shown by example, extending from the binding above:  
-``` c++
-if (InputManager::Instance()->KeyPress(0))  
-        cout << "Space was pressed" << endl;  
-if (InputManager::Instance()->KeyDown(0))  
-        cout << "Space is held down" << endl;  
-if (InputManager::Instance()->KeyRelease(0))  
-        cout << "Space was released" << endl;  
-if (InputManager::Instance()->KeyUp(0))  
-        cout << "Space is up" << endl;  
+
+#### Checking Input:
+
+This is best shown by example, extending from the binding above:
+
+```c++
+if (InputManager::Instance()->KeyPress(0))
+        cout << "Space was pressed" << endl;
+if (InputManager::Instance()->KeyDown(0))
+        cout << "Space is held down" << endl;
+if (InputManager::Instance()->KeyRelease(0))
+        cout << "Space was released" << endl;
+if (InputManager::Instance()->KeyUp(0))
+        cout << "Space is up" << endl;
 ```
 
 ---
@@ -63,6 +74,16 @@ if (InputManager::Instance()->KeyUp(0))
 ## Dependencies
 
 This project was built for the [SFML 2.5 API](https://www.sfml-dev.org/), and as such, you will need to link the library to your project to use this input manager.
+
+---
+
+## Support
+
+If you are looking for support please send a non-spammy looking email to Rilliden@gmail.com. If you are unsure what to write for the title, try something in this format:
+
+```
+[Repository Name] <Question>
+```
 
 ---
 
